@@ -1,0 +1,581 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'cairo', sans-serif;
+    color: #343434;
+    font-weight: 400;
+      opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+
+body.loaded {
+  opacity: 1;
+}
+
+
+:root {
+    --color-gray: rgba(255, 255, 255, 0.5);
+    background-color:#f7f7f7;
+}
+
+.color-gray {
+    color: var(--color-gray);
+}
+
+.bg-sec {
+ background-color: #f7f7f7;
+}
+
+.max-w-400 {
+    max-width: 400px;
+}
+
+header {
+    background-attachment: fixed;
+    background-image:  url("images/home5.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    color:burlywood;
+    background-color: #000;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+   
+    transition: background-color 0.3;
+}
+.icon-circle:hover{
+    background-color:beige;
+    color: #000;
+}
+
+.about {
+    font-size: 40px;
+    font-weight: 50px;
+}
+.navbar-brand img{
+    width: 100px;
+    
+}
+h1 {
+    font-size: 50px;
+}
+
+.nav-link.active {
+    position: relative;
+
+}
+
+.nav-link.active::after {
+    content: "";
+    position: absolute;
+    bottom: -0.25px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: wheat;
+}
+
+
+.nav-item{
+    margin-left: 20px;
+}
+.navbar-transparent {
+    background-color: transparent !important;
+    transition: background-color 0.3s ease;
+}
+
+.bg-dark {
+    transition: background-color 0.3s ease;
+}
+section {
+    padding-block: 100px;
+}
+
+p {
+    line-height: 1.8;
+    margin: 0;
+    font-size: 18px;
+    
+    
+}
+
+
+
+.container.row.hero-img {
+    position: relative;
+}
+
+.about .container .row .col-md-5 .hero-img img::after{
+    position: absolute;
+    content: "";
+    background-image: url(../image-exam/photo_2025-05-02_21-50-03.jpg);
+    background-repeat: repeat;
+    width: 80%;
+    height: 80%;
+    bottom: -7%;
+    left: -7%;
+    z-index: -1;
+}
+
+
+
+.container .row .col-12 .inner {
+    background-color: beige;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex; /* خلي الأيقونة والنص جنب بعض */
+    align-items: center; /* نص و أيقونة في النص رأسيًا */
+    justify-content: center; /* في النص أفقيًا */
+    height: 100%; /* البوكس ياخد نفس الطول */
+    min-height: 250px; /* خلي البوكسات كلها نفس الطول */
+    text-align: start;
+    gap: 15px; /* مسافة بين الأيقونة والنص */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* الأيقونة */
+.icon {
+    width: 80px;
+    height: 80px;
+    
+    color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    
+}
+
+/* النص */
+.container .row .col-12 .inner p {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* على الموبايل */
+@media (max-width: 768px) {
+    .container .row .col-12 .inner {
+        flex-direction: column; /* فوق بعض في الموبايل */
+        text-align: center;
+    }
+
+    .icon {
+        margin-bottom: 10px;
+    }
+}
+
+
+
+/* على الموبايل خلى البادينج أقل */
+@media (max-width: 768px) {
+  #works .container {
+    padding: 0 10px;
+  }
+
+  #works .card-body h5,
+  #works .card-body p {
+    font-size: 14px;
+  }
+
+  #works .btn {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+}
+
+
+
+.work-item{
+    position: relative;
+    overflow: hidden;
+}
+.work-item img{
+display: block;
+width: 100%;
+height: auto;
+}
+.work-item .overlay {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 2;
+  }
+.work-item:hover .overlay{
+    opacity: 1;
+}
+.overlay h3{
+    margin: 10px 0;
+    font-size: 18px;
+    color: #000;
+
+}
+.icons-work i{
+    margin: 0 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+.icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: black; 
+    color:white;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+    margin: 5px;
+  }
+  
+  .icon-box:hover {
+    background-color: white;  
+    color: black;             
+  }
+
+.nav-pills .nav-link.active{
+    position: relative;
+    transition: 0.5s;
+}
+.nav-pills .nav-link.active::after{
+    width: 100px fit-content;
+    content: "";
+    position: absolute;
+    bottom: -0.25px;
+    left: 0;
+    height: 2px;
+    background-color: black;
+}
+.service{
+    background-color: #EDFBE2;
+    box-shadow:0 0 20px ;
+    border-radius: 50px;
+}
+
+.img-text{
+    padding: 25px;
+    color: white;
+    text-align: center;
+    background-color: #2d2d2d;
+    
+    display: block;
+}
+.inner-card{
+    position: relative;
+    
+    overflow: hidden;
+    text-align: center;
+    color: white;
+   
+  }
+  .overlay-card {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 180px;
+    left: 5px;
+    background: rgba(255, 255, 255, 0.9); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.5s ease;
+    
+    
+  }
+  
+  .inner-card:hover .overlay-card {
+    opacity: 1;
+    transform: rotateY(360deg);
+    
+  }
+  .btn {
+    background-color:green;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+  }
+
+  .btn:hover {
+    background-color: #004d40;
+    color: aliceblue;
+  }
+  .coloring{
+    background-image: linear-gradient(to right, #3ca55c, #b5ac49);
+  }
+ #team{
+    background-color: #000;
+    color: white;
+ }
+  
+  .social-icons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .social-icons i {
+    background: #000;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 16px;
+    transition: 0.3s ease;
+    cursor: pointer;
+  }
+  .social-icons i:hover{background-color: white;
+                        color:black;}
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.icon-contact {
+    background-color: cornflowerblue;
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    margin-bottom: 10px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.icon-contact a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.icon-contact i {
+    color: #000;
+    font-size: 24px;
+    transition: 0.3s ease;
+}
+
+
+
+.contact-info:hover .icon-contact {
+         background-color: rgba(0, 0, 0, 0.43);
+         color:white;
+}
+footer p{
+   
+        line-height: 1.6;
+        margin: 0;
+        font-size: 15px;
+        color: #748182;
+    
+}
+.footer{
+    color: #343434;
+}
+.owl-carousel{
+    width: 100%;
+    display: block;
+}
+.owl-stage-outer{
+    overflow: hidden;
+}
+
+
+@media (max-width: 576px) {
+  h1{ font-size: 1.5rem !important;}}
+@media (max-width: 576px) {
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 1.2rem !important;
+  }
+
+  .card {
+    width: 100% !important;
+  }
+
+  .card-title, .card-text, p {
+    font-size: 1rem !important;
+  }
+
+  .header-caption h2 {
+    font-size: 1.5rem !important;
+  }
+
+  .header-caption h5 {
+    font-size: 1.1rem !important;
+  }
+
+  .container, .row {
+    padding: 10px !important;
+  }
+      
+}
+.titles{
+   color:linear-gradient(to right, #3ca55c, #b5ac49);
+}
+body {
+  font-family: 'Cairo', sans-serif;
+  font-size: 18px; 
+  line-height: 1.7;
+}
+
+
+ 
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+   background-color:linear-gradient(to right, #3ca55c, #b5ac49) ;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #ccc;
+  border-top: 6px solid #1d88ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+   
+    @media (max-width: 767.98px) {
+      .logo-container {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 10px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .logo-container {
+        order: 1;
+      }
+
+      #navbarLinks {
+        order: 2;
+      }
+
+      .navbar-nav.ms-auto {
+        order: 3;
+      }
+    }
+  
+
+
+
+    @media (min-width: 768px) {
+  .card{
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+  }
+  .card img{
+    height: 443px  !important;
+  }
+  .card-body{
+           height: 157px !important;
+  }
+}
+.solar-vision-container {
+    max-width: 900px;
+    margin: 50px auto;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.solar-title {
+    text-align: center;
+    color: #f39c12;
+}
+
+.solar-subtitle {
+    margin-top: 30px;
+    text-align: center;
+    color: #27ae60;
+}
+
+.solar-paragraph {
+    line-height: 1.8;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    text-align: justify;
+}
+
+.solar-list {
+    list-style: none;
+    padding: 0;
+}
+
+.solar-list-item {
+    background: #eafaf1;
+    margin: 8px 0;
+    padding: 10px 15px;
+    border-right: 5px solid #27ae60;
+    border-radius: 8px;
+}
+
+/* تكبير حجم البراجراف في سكشن رؤية ورسالة الشركة */
+#ourVision .solar-paragraph {
+  font-size: 1.5rem; /* حجم أكبر */
+  line-height: 2; /* تباعد أسطر مريح */
+  /* لون نص فاتح لو الخلفية غامقة */
+}
+
+#ourVision .solar-list-item {
+  font-size: 1.3rem; /* تكبير عناصر الليست */
+  line-height: 1.8;
+}
+html[dir="rtl"] .owl-carousel .owl-stage {
+  direction: rtl !important;
+}
+
+html[dir="rtl"] .owl-carousel .owl-item {
+  float: right !important;
+  text-align: right;
+}

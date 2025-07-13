@@ -72,29 +72,22 @@ document.addEventListener("DOMContentLoaded", function () {
   elements.forEach(el => observer.observe(el));
 });
 
-window.addEventListener("scroll", toggleNavbarBackground);
-window.addEventListener("load", toggleNavbarBackground);
-
 document.addEventListener("DOMContentLoaded", function () {
-  const direction = document.documentElement.getAttribute("dir") || "ltr";
-
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const animationClass = direction === "rtl" ? "animate__fadeInRight" : "animate__fadeInLeft";
-
-        entry.target.classList.add("animate__animated", animationClass);
-
+        entry.target.classList.add("animate__animated", "animate__backInDown");
         entry.target.addEventListener("animationend", () => {
-          entry.target.classList.remove("animate__animated", animationClass);
+          entry.target.classList.remove("animate__animated", "animate__backInDown");
         });
       }
     });
-  }, { threshold: 0.1 });
+  });
 
-  const targets = document.querySelectorAll(".animate-on-scrolls");
-  targets.forEach(target => observer.observe(target));
+  const elements = document.querySelectorAll(".animate-on-scrolls");
+  elements.forEach(el => observer.observe(el));
 });
+
 
 $(document).ready(function(){
   $(".owl-carousel").owlCarousel({

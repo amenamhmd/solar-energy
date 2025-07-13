@@ -175,6 +175,13 @@ document.querySelectorAll('a').forEach(link => {
     }
   });
 });
+function changeLanguage(lang) {
+    if (lang === 'ar') {
+        document.documentElement.setAttribute("dir", "rtl");
+    } else {
+        document.documentElement.setAttribute("dir", "ltr");
+    }
+}
 
 
 

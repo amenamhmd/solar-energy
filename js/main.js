@@ -146,9 +146,16 @@ $(document).ready(function(){
   }, 500);
 });
 
-// ✅ لما الصفحة تفتح أضف كلاس loaded
+// ✅ لما الصفحة تفتح
 window.addEventListener("load", () => {
   document.body.classList.add("loaded");
+});
+
+// ✅ لما ترجع بالـ Back
+window.addEventListener("pageshow", function (event) {
+  if (event.persisted) {
+    document.body.classList.add("loaded");
+  }
 });
 
 // ✅ عند الضغط على أي لينك
@@ -156,9 +163,8 @@ document.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', function(e) {
     const href = link.getAttribute('href');
 
-    // ✅ استثناء زر اللغة أو أي زر خاص
     if (
-      link.id === "langSwitcher" || 
+      link.id === "langSwitcher" ||  
       link.classList.contains("lang-switcher") ||
       link.closest(".lang-switcher")
     ) {
@@ -171,7 +177,7 @@ document.querySelectorAll('a').forEach(link => {
 
       setTimeout(() => {
         window.location.href = href; // روح للرابط بعد التأثير
-      }, 500); // نفس مدة الـ transition
+      }, 500);
     }
   });
 });
